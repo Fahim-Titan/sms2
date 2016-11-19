@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand">
-                <b>Night Watch</b> Primary School
+                <b>Modern University of Science and Technology</b>
             </a>
         </div>
 

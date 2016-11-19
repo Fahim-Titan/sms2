@@ -9,7 +9,9 @@
     {{--Home Page Slider--}}
     <link rel="stylesheet" href="{{ URL::to('src/css/slider.css')}}">
     {{--Style.css--}}
-    <link rel="stylesheet" href="{{ URL::to('src/css/style.css')}}">
+    <!--
+    <link rel="stylesheet" href="{{ URL::to('src/css/style.css')}}"> -->
+    <link rel="stylesheet" href="{{ URL::to('src/css/styleNew.css')}}">
     <!-- Font awesome css file-->
     <link href="{{ URL::to('src/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- Google fonts -->

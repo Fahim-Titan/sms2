@@ -49,6 +49,15 @@ Route::get('/course_list',function()
 Route::get('/contact',function(){
    return view('others.contact');
 });
+Route::get('/about',function(){
+    return view('others.about');
+});
+Route::get('/galary',function(){
+    return view('others.galary');
+});
+Route::get('/notice_list',function(){
+    return view('others.notice_list');
+});
 
 
 
