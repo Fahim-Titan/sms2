@@ -17,12 +17,12 @@
 <div class="banner">
     <div class="header">
         <div class="logo">
-            <a href="index.html"><img src="{{ URL::to('src/images/logo.jpg')}}" alt=""/></a>
+            <a href={{url('/')}}><img src="{{ URL::to('src/images/logo.jpg')}}" alt=""/></a>
         </div>
         <div class="top-menu">
             <span class="menu"></span>
             <ul class="navig">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href={{url('/')}}>Home</a></li>
                 <li><a href={{url('/about')}}>About</a></li>
                 <li><a href={{url('/course_list')}}>Programs</a></li>
                 <li><a href={{url('/galary')}}>Gallery</a></li>
@@ -47,9 +47,11 @@
             <div class="container">
                 <div class="callbacks_container">
                     <ul class="rslides" id="slider">
+                        <!--
                         <li><h3>Modern University of Science and Technology</h3></li>
                         <li><h3>Modern University of Science and Technology.</h3></li>
                         <li><h3>Modern University of Science and Technology</h3></li>
+                        -->
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -58,8 +60,11 @@
     </div>
     <div class="banner-grids">
         <div class="container">
+            <div class="col-md-2 banner-grid">
 
-            <div class="col-md-6 banner-grid">
+            </div>
+
+            <div class="col-md-4 banner-grid">
                 <h3>News Feed</h3>
                 <div class="banner-grid-sec">
                     <div class="news-grid">
@@ -74,13 +79,18 @@
                         <h4><a href="#">নিয়োগ বিজ্ঞপ্তি</a></h4>
                         <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
                     </div>
+                    <!--
                     <div class="news-grid">
-                        <h4><a href="#">Notification for the students who are interested to avail of Half Free Tuition Award (HFTA) under "Sibling Quota"</a></h4>
+                        <h4><a href="#">Notification for Half Free Tuition Award</a></h4>
                         <p>Aliquam sem velit, rhoncus sed arcu eu viverra.</p>
+                    </div>
+                    -->
+                    <div class="more_info">
+                        <a href="blog.html">View All</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 banner-grid">
+            <div class="col-md-4 banner-grid">
                 <h3>News Letter</h3>
                 <div class="banner-grid-sec news_sec">
                     <div class="news-ltr">
@@ -93,6 +103,9 @@
                     </form>
                 </div>
             </div>
+            <div class="col-md-2 banner-grid">
+
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
@@ -100,40 +113,57 @@
 <!---->
 <div class="welcome">
     <div class="container">
-        <h2>Duis aliquet in ex nec elementum. In commodo molestie libero ornare elementum.</h2>
+        <h2>Modern University of Science and Technology</h2>
         <div class="welcm_sec">
             <div class="col-md-9 campus">
                 <div class="campus_head">
                     <h3>Welcome</h3>
-                    <p>Nunc justo sapien, cursus at urna at, placerat porttitor tellus. Aliquam vehicula tellus nunc,
-                        id pretium lacus placerat dignissim. Donec quis dui sed lacus vulputate scelerisque a sit amet neque.</p>
+                    <p>Approved by the Government of the  People's  Republic of Bangladesh, Modern University of Science and Technology has been successfully carrying out its  noble mission since 1995.<br>
+
+                        It maintains close collaboration with the University Grants Commission (UGC), Bangladesh and many other national and  international educational institutions and professional bodies.</p>
                 </div>
                 <div class="col-md-3 wel_grid">
-                    <img src="images/w1.jpg" class="img-responsive" alt=""/>
-                    <h5><a href="#">Aliquam sit amet</a></h5>
-                    <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <img src="{{ URL::to('src/images/m1.jpg')}}" class="img-responsive" alt=""/>
+                    <h5><a href="#">Chancellor</a></h5>
+                    <p>Mr. Md. Abdul Hamid
+                        President of the People's Republic of Bangladesh</p>
                 </div>
                 <div class="col-md-3 wel_grid">
-                    <img src="images/w3.jpg" class="img-responsive" alt=""/>
-                    <h5><a href="#">Aliquam sit amet</a></h5>
-                    <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <img src="{{ URL::to('src/images/m2.jpg')}}" class="img-responsive" alt=""/>
+                    <h5><a href="#">Chairman</a></h5>
+                    <p>Mr. Kazi Rafiqul Alam
+                        President,
+                        Dhaka Ahsania Mission</p>
                 </div>
                 <div class="col-md-3 wel_grid">
-                    <img src="images/w2.jpg" class="img-responsive" alt=""/>
-                    <h5><a href="#">Aliquam sit amet</a></h5>
-                    <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <img src="{{ URL::to('src/images/m1.jpg')}}" class="img-responsive" alt=""/>
+                    <h5><a href="#">Vice Chancellor</a></h5>
+                    <p>Prof. Dr. A.M.M. Safiullah</p>
                 </div>
                 <div class="col-md-3 wel_grid">
-                    <img src="images/w4.jpg" class="img-responsive" alt=""/>
-                    <h5><a href="#">Aliquam sit amet</a></h5>
-                    <p>Morbi molestie nec ante ultrices. Cum sociis natoque penatibus et magnis dis parturient</p>
+                    <img src="{{ URL::to('src/images/m2.jpg')}}" class="img-responsive" alt=""/>
+                    <!--<img src="images/w4.jpg" class="img-responsive" alt=""/>-->
+                    <h5><a href="#">Treasurer</a></h5>
+                    <p>Prof. Dr. Kazi Shariful Alam</p>
                 </div>
                 <div class="clearfix"></div>
+                <!--
                 <div class="more_info">
                     <a href="blog.html">More Info....</a>
                 </div>
+                -->
             </div>
             <div class="col-md-3 testimonal">
+                <h3>MUST Navigation</h3>
+                <ul>
+                    <li><a href="#"><span></span>Mark Sheet</a></li>
+                    <li><a href="#"><span></span>Departments</a></li>
+                    <li><a href="#"><span></span>Class Routine</a></li>
+                    <li><a href="#"><span></span>Academic Calendar</a></li>
+                    <li><a href="#"><span></span>Alumni</a></li>
+                    <li><a href="#"><span></span>Seminar</a></li>
+                </ul>
+                <!--
                 <h3>Testimonials</h3>
                 <div class="testimnl-grid">
                     <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
@@ -147,12 +177,14 @@
                     <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
                     <h5>John.Mr</h5>
                 </div>
+                -->
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
 <!---->
+<!--
 <div class="news">
     <div class="container">
         <h3>Top News</h3>
@@ -197,35 +229,40 @@
         </div>
     </div>
 </div>
+-->
 <!---->
+
 <div class="footer">
     <div class="container">
         <div class="ftr-sec">
             <div class="col-md-4 ftr-grid">
-                <h3>Text Module</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut odio ut quam convallis ultricies. Morbi rutrum lectus tortor. Cras vitae semper mi, et feugiat dolor.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut odio ut quam convallis ultricies. Morbi rutrum lectus tortor. Cras vitae semper mi, et feugiat dolor.</p>
+                <h3>Address</h3>
+                <b>Modern University of Science & Technology</b><br>
+                141 & 142, Love Road, Tejgaon Industrial Area, Dhaka-1208.<br>
+                Tel. (8802) 8870422, Ext. 107, 114, Fax : (8802) 8870417-18,<br>
+                Email : info@aust.edu, regr@aust.edu
             </div>
             <div class="col-md-4 ftr-grid2">
                 <h3>Pages</h3>
                 <ul>
-                    <li><a href="index.html"><span></span>Home</a></li>
-                    <li><a href="about.html"><span></span>About</a></li>
-                    <li><a href="program.html"><span></span>Programs</a></li>
-                    <li><a href="blog.html"><span></span>Blog</a></li>
-                    <li><a href="gallery.html"><span></span>Gallery</a></li>
-                    <li><a href="contact.html"><span></span>Contact</a></li>
+                    <li><a href={{url('/')}}>Home</a></li>
+                    <li><a href={{url('/about')}}>About</a></li>
+                    <li><a href={{url('/course_list')}}>Programs</a></li>
+                    <li><a href={{url('/galary')}}>Gallery</a></li>
+                    <li><a href={{url('/contact')}}>Contact</a></li>
+                    <li><a href={{url('/notice_list')}}>Notice</a></li>
+                    <li><a href={{url('/home')}}>Login</a></li>
                 </ul>
             </div>
             <div class="col-md-4 ftr-grid3">
-                <h3>Quick links</h3>
+                <h3>MUST Navigation</h3>
                 <ul>
-                    <li><a href="about.html"><span></span>History</a></li>
-                    <li><a href="about.html"><span></span>Departments</a></li>
-                    <li><a href="gallery.html"><span></span>Services</a></li>
-                    <li><a href="blog.html"><span></span>Guidancs</a></li>
-                    <li><a href="about.html"><span></span>Team</a></li>
-                    <li><a href="contact.html"><span></span>Contact</a></li>
+                    <li><a href="#"><span></span>Mark Sheet</a></li>
+                    <li><a href="#"><span></span>Departments</a></li>
+                    <li><a href="#"><span></span>Class Routine</a></li>
+                    <li><a href="#"><span></span>Academic Calendar</a></li>
+                    <li><a href="#"><span></span>Alumni</a></li>
+                    <li><a href="#"><span></span>Seminar</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -235,7 +272,7 @@
 <!---->
 <div class="copywrite">
     <div class="container">
-        <p>Copyright © 2015 University. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        <p>Copyright © 2015 University. All rights reserved</p>
     </div>
 </div>
 
