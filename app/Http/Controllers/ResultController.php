@@ -3,6 +3,7 @@
 //use Symfony\Component\HttpFoundation\Request;
 use App\Enrollment;
 use App\Result;
+use App\User;
 use Excel;
 use Request;
 use DB;
@@ -26,9 +27,14 @@ public $count = 0;
     // return view('results',compact('sub_info'));
 	
 	
-	 $students = User::select(DB::raw("(id+' => '+ name) as name, id"))->lists('name', 'id');
+	$students = User::select(DB::raw("(id+' => '+ name) as name, id"))->lists('name', 'id');
+    //$students = DB::table('users')->pluck('id');
+    //$students = User::all('name','id');
     $sub_info = DB::table('subjects')->pluck('sub_name','sub_id');
     return view('results',compact('sub_info','students'));
+
+
+
   }
 
   /**
@@ -78,7 +84,7 @@ public $count = 0;
    *
    * @return Response
    */
-  public function store()
+  public function store(Requests\uploadResultRequest $request)
   {
 	  
 	$result = new Result();
