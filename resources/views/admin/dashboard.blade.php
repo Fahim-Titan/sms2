@@ -128,6 +128,9 @@
                 <tr>
                     <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('enrollment')}}">Teacher Assign</a></button></td>
                 </tr>
+                <tr>
+                    <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/result')}}">Add Result</a></button></td>
+                </tr>
                 </tbody>
             </table>
 

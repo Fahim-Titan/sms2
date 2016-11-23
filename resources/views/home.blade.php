@@ -86,7 +86,7 @@
                     </div>
                     -->
                     <div class="more_info">
-                        <a href="blog.html">View All</a>
+                        <a href={{url('/notice_list')}}>View All</a>
                     </div>
                 </div>
             </div>
