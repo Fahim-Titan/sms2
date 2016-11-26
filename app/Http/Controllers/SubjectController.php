@@ -44,17 +44,16 @@ class SubjectController extends Controller {
    */
   public function store(Requests\createSubjectRequest $request)
   {
-    $/* subject = new Subject();
-    $subject->cb_id = $request->cb_id;
-    $subject->sub_name = $request->sub_name;
-    $subject->textbook_name = $request->textbook_name;
-    $subject->save();
-//    return 'data saved';
-    return view('admin.dashboard')->withSuccess('data has been saved'); */
+//    $/* subject = new Subject();
+//    $subject->cb_id = $request->cb_id;
+//    $subject->sub_name = $request->sub_name;
+//    $subject->textbook_name = $request->textbook_name;
+//    $subject->save();
+////    return 'data saved';
+//    return view('admin.dashboard')->withSuccess('data has been saved'); */
 	
-	
-	$subject = new Subject();
 
+	$subject = new Subject();
     $subject->sub_name = $request->sub_name;
     $subject->textbook_name = $request->textbook_name;
     $subject->save();

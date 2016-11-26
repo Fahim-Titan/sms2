@@ -41,12 +41,13 @@ class EnrollmentController extends Controller {
    */
   public function store(Requests\CreateEnrollmentRequest $request)
   {
+    $info = DB::table('subjects')->lists('sub_name','sub_id');
     $enroll = new Enrollment();
     $enroll->id = $request->id;
     $enroll->sub_id = $request->sub_id;
     $enroll->save();
-    return 'saved';
-    //return view('enrollments')->withSuccess('data has been saved');
+    //return 'saved';
+    return view('enrollments',compact('info'))->withSuccess('data has been saved');
   }
 
   /**
