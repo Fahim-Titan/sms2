@@ -37,5 +37,9 @@ class User extends Authenticatable {
 	{
 		return $this->belongsToMany('Teacher_assign', 'id');
 	}
+	public  function result()
+	{
+		return $this->hasMany('Result', 'id');
+	}
 
 }

@@ -101,6 +101,6 @@ Route::get('/upload-files','FileController@create');
 
 
 //temporary links
-Route::get('/student', function(){
-    return view('student.dashboard');
-});
+//Route::get('/student', function(){
+//    return view('student.dashboard');
+//});

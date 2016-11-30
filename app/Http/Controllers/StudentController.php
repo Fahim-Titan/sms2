@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Result;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
@@ -26,7 +27,10 @@ class StudentController extends Controller
 
        //$infos = DB::table('users')->where('id', '=', $student_info)->get();
        /* return view('student.dashboard', compact('student_info','infos')); */
-	   return view('student.dashboard');
+        $student_id = Auth::user();
+        $student_results = DB::table('results')->where('id',$student_id->id)->get();
+        $course_details = DB::table('results')->join('subjects', 'results.sub_id','=','subjects.sub_id')->where('id',$student_id->id)->get();
+	   return view('student.dashboard', compact('course_details','student_results'));
     }
 
     /**

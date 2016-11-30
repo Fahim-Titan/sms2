@@ -123,27 +123,27 @@
                     <tbody>
                     <tr>
                         <th>Name:</th>
-                        <td>Tanvir Iqbal</td>
+                        <td>{{ Auth::user()->name }}</td>
                     </tr>
                     <tr>
                         <th>ID:</th>
-                        <td>12.02.04.020</td>
+                        <td>{{ Auth::user()->id }}</td>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>tanviriqbal4u@live.com</td>
+                        <td>{{ Auth::user()->email }}</td>
                     </tr>
                     <tr>
                         <th>Phone</th>
-                        <td>01914949402</td>
+                        <td>{{ Auth::user()->contact_number }}</td>
                     </tr>
                     <tr>
                         <th>Guardian Name:</th>
-                        <td>Md Amjad Hussain</td>
+                        <td>{{ Auth::user()->guardian_name }}</td>
                     </tr>
                     <tr>
                         <th>Phone</th>
-                        <td>01914949402</td>
+                        <td>{{ Auth::user()->gurdian_phone_number}}</td>
                     </tr>
                     <tr>
                         <th>CGPA</th>
@@ -173,30 +173,23 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>C 101</td>
-                                <td>20</td>
-                                <td>10</td>
-                                <td>70</td>
-                                <td>100</td>
-                                <td>A+</td>
-                            </tr>
-                            <tr>
-                                <td>C 101</td>
-                                <td>20</td>
-                                <td>10</td>
-                                <td>70</td>
-                                <td>100</td>
-                                <td>A+</td>
-                            </tr>
-                            <tr>
-                                <td>C 101</td>
-                                <td>20</td>
-                                <td>10</td>
-                                <td>70</td>
-                                <td>100</td>
-                                <td>A+</td>
-                            </tr>
+                            @foreach($course_details as $result)
+                                <tr>
+                                    <td>{{$result->sub_name}}</td>
+                                    <td>{{$result->quiz}}</td>
+                                    <td>{{$result->classPerformance}}</td>
+                                    <td>{{$result->final}}</td>
+                                    <td>{{$result->quiz+$result->final+$result->classPerformance}}</td>
+                                    <td>@if(($result->quiz+$result->final+$result->classPerformance)<40) F
+                                    @elseif(($result->quiz+$result->final+$result->classPerformance)<50) D
+                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<60) C
+                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<70) B
+                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<80) A
+                                        @else(($result->quiz+$result->final+$result->classPerformance)<81) A+
+                                            @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -295,6 +288,8 @@
             <p>Copyright © 2015 University. All rights reserved</p>
         </div>
     </div>
+    {{--{{$student_results = DB::table('results')->where('id', Auth::user()->id)->get()}}--}}
+
 
     @endsection
 
