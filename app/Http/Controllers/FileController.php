@@ -44,18 +44,20 @@ class FileController extends Controller {
     $fileUpload = new File();
     $fileUpload->id = Auth::id();
     $fileUpload->date = $request->date;
-    $fileUpload->type = 'file';
-
+    $fileUpload->type = $request->type;
+    $fileUpload->file_heading=$request->file_heading;
     if($request->hasFile('file_path')){
       $file = Input::file('file_path');
-      $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+      $timestamp = str_replace([' ', ':'], '-', Carbon::now ()->toDateTimeString());
       $name = $timestamp . '-' . $file->getClientOriginalName();
       $fileUpload->file_path = $name;
       $file->move(public_path() . '/files', $name);
     }
-    $fileUpload->save();
 
-    return "saved";
+    $fileUpload->file_description = $request->file_description;
+    $fileUpload->save();
+    $success = "file has been uploaded successfully";
+    return view('files',compact('success'));
   }
 
 

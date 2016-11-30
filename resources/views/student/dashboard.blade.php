@@ -147,7 +147,7 @@
                     </tr>
                     <tr>
                         <th>CGPA</th>
-                        <td>5.00</td>
+                        <td>{{$cgpa}}</td>
                     </tr>
                     </tbody>
                 </table>

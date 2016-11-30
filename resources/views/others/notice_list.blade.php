@@ -31,7 +31,7 @@
                 <li><a href={{url('/course_list')}}>Programs</a></li>
                 <li><a href={{url('/galary')}}>Gallery</a></li>
                 <li><a href={{url('/contact')}}>Contact</a></li>
-                <li class="active"><a href={{url('/notice_list')}}>Notice</a></li>
+                <li class="active"><a href={{url('notice')}}>Notice</a></li>
                 <li><a href={{url('/home')}}>Login</a></li>
             </ul>
         </div>
@@ -53,22 +53,19 @@
             <thead>
             <tr>
                 <th>Notices/Events</th>
+                <th>Description</th>
                 <th>Posting Date</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td width="80%">Notification for the students who have been awarded Govt. Scholarship</td>
-                <td>17/11/16</td>
-            </tr>
-            <tr>
-                <td>নিয়োগ বিজ্ঞপ্তি</td>
-                <td>17/11/16</td>
-            </tr>
-            <tr>
-                <td>Notification for the students who are interested to avail of Half Free Tuition Award (HFTA) under "Sibling Quota"</td>
-                <td>17/11/16</td>
-            </tr>
+            @foreach($notice_list as $notice)
+                <tr>
+                    <td>{{$notice->file_heading}}</td>
+                    <td>{{$notice->file_description}}</td>
+                    <td>{{$notice->date}}</td>
+                </tr>
+                @endforeach
+            
             </tbody>
         </table>
     </div>

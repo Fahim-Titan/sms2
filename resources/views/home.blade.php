@@ -27,7 +27,7 @@
                 <li><a href={{url('/course_list')}}>Programs</a></li>
                 <li><a href={{url('/galary')}}>Gallery</a></li>
                 <li><a href={{url('/contact')}}>Contact</a></li>
-                <li><a href={{url('/notice_list')}}>Notice</a></li>
+                <li><a href={{url('notice')}}>Notice</a></li>
                 <li><a href={{url('/home')}}>Login</a></li>
             </ul>
         </div>

@@ -8,7 +8,7 @@ class File extends Model {
 
 	protected $table = 'files';
 	public $timestamps = true;
-	protected $fillable = array('file_path', 'date', 'type', 'id');
+	protected $fillable = array('file_path', 'date', 'type', 'id','file_description','file_heading');
 
 	public function user()
 	{

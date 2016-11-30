@@ -55,9 +55,9 @@ Route::get('/about',function(){
 Route::get('/galary',function(){
     return view('others.galary');
 });
-Route::get('/notice_list',function(){
-    return view('others.notice_list');
-});
+//Route::get('/notice_list',function(){
+//    return view('others.notice_list');
+//});
 
 
 

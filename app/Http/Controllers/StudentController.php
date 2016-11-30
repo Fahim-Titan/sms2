@@ -11,6 +11,9 @@ use DB;
 class StudentController extends Controller
 {
     //
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
          //$student_info = Auth::id();
@@ -30,7 +33,28 @@ class StudentController extends Controller
         $student_id = Auth::user();
         $student_results = DB::table('results')->where('id',$student_id->id)->get();
         $course_details = DB::table('results')->join('subjects', 'results.sub_id','=','subjects.sub_id')->where('id',$student_id->id)->get();
-	   return view('student.dashboard', compact('course_details','student_results'));
+        $cgpa = 0.00;
+        $grade = 0.00;
+        foreach($course_details as $result)
+        {
+            $number = $result->quiz+$result->final+$result->classPerformance;
+
+            if($number <40 ) {$grade=0.00;}
+            elseif ($number >40 && $number <44){ $grade = 2.00;}
+            elseif ($number >=45 && $number <49) {$grade =2.25;}
+            elseif ($number >=50 && $number <54) {$grade =2.50;}
+            elseif ($number >=55 && $number <59) {$grade =2.75;}
+            elseif ($number >=60 && $number <64) {$grade =3.00;}
+            elseif ($number >=65 && $number <69) {$grade =3.25;}
+            elseif ($number >=70 && $number <74) {$grade =3.50;}
+            elseif ($number >=75 && $number <79) {$grade =3.75;}
+            elseif($number >80){$grade=4.00;}
+
+
+            $cgpa += $grade/$result->credit;
+        }
+
+	   return view('student.dashboard', compact('cgpa','course_details','student_results'));
     }
 
     /**

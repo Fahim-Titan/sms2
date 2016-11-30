@@ -14,6 +14,10 @@
 	</style>
 </head>
 <body>
+
+@if (!empty($success))
+	{{ $success }}
+@endif
 <div class="container">
 	<h1 class="text-center">Add Files</h1>
 	<hr>
@@ -26,6 +30,19 @@
 			{!! Form::label('date', 'Date:') !!}
 			{!! Form::date('date',null,['class' => 'form-control']) !!}
 		</div>
+		<div class="form-group">
+			{!! Form::label('type', 'Type:') !!}
+			{!! Form::select('type', ['Notice' => 'notice', 'Events' => 'events'], null, ['placeholder' => 'choose']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('file_heading', 'File Heading:') !!}
+			{!! Form::text('file_heading') !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('file_description', 'Description:') !!}
+			{!! Form::textarea('file_description') !!}
+		</div>
+
 		{{--<div class="form-group">--}}
 			{{--{!! Form::label('type', 'Type:') !!} <br>--}}
 			{{--{!! Form::select('type', array('notice'=> 'Notices', 'files' => 'Files'), null, ['placeholder' => 'Select your roles', 'class' => 'form-control'])!!}--}}
