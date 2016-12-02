@@ -65,7 +65,7 @@
                     <td>{{$notice->date}}</td>
                 </tr>
                 @endforeach
-            
+
             </tbody>
         </table>
     </div>

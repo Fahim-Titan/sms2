@@ -29,6 +29,7 @@ Route::resource('exam_info', 'Exam_infoController');
 Route::resource('admin','AdminController');
 Route::resource('student','StudentController');
 Route::resource('notice', 'NoticeController');
+Route::resource('edit','editcontroller');
 
 Route::auth();
 
@@ -55,6 +56,7 @@ Route::get('/about',function(){
 Route::get('/galary',function(){
     return view('others.galary');
 });
+
 //Route::get('/notice_list',function(){
 //    return view('others.notice_list');
 //});
