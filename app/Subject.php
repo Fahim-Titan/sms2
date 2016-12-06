@@ -8,16 +8,16 @@ class Subject extends Model {
 
 	protected $table = 'subjects';
 	public $timestamps = true;
-	protected $fillable = array('cb_id', 'sub_name', 'textbook_name');
+	protected $fillable = array('cb_id', 'sub_name', 'textbook_name','credit');
 
 	public function results()
 	{
 		return $this->hasMany('Result');
 	}
 
-	public function cbranch()
-	{
-		return $this->belongsToMany('Class_branch','cb_id','cb_id');
-	}
+//	public function cbranch()
+//	{
+//		return $this->belongsToMany('Class_branch','cb_id','cb_id');
+//	}
 
 }

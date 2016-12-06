@@ -147,6 +147,10 @@
                 {!! Form::text('textbook_name',null,['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('credit', 'Credit :') !!}
+                {!! Form::text('credit',null,['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
             </div>
             {!! Form::close() !!}

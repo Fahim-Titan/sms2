@@ -56,6 +56,7 @@ class SubjectController extends Controller {
 	$subject = new Subject();
     $subject->sub_name = $request->sub_name;
     $subject->textbook_name = $request->textbook_name;
+    $subject->credit = $request->credit;
     $subject->save();
 //    return 'data saved';
     return view('admin.dashboard')->withSuccess('data has been saved');
