@@ -94,8 +94,8 @@
                 <h3>News Letter</h3>
                 <div class="banner-grid-sec news_sec">
                     <div class="news-ltr">
-                        <h4><a href="#">Pellentesque sed arcu lacinia</a></h4>
-                        <p>Aliquam sem velit, rhoncus sed arcu eu viverra. Suspendisse lacus posuere ultricies turpis.</p>
+                        <h4><a href="#">Subcribe</a></h4>
+                        <!-- <p>Aliquam sem velit, rhoncus sed arcu eu viverra. Suspendisse lacus posuere ultricies turpis.</p> -->
                     </div>
                     <form>
                         <input type="text" placeholder="Email Address*" required="">
@@ -115,7 +115,7 @@
     <div class="container">
         <h2>Modern University of Science and Technology</h2>
         <div class="welcm_sec">
-            <div class="col-md-9 campus">
+            <div class="col-md-12 campus">
                 <div class="campus_head">
                     <h3>Welcome</h3>
                     <p>Approved by the Government of the  People's  Republic of Bangladesh, Modern University of Science and Technology has been successfully carrying out its  noble mission since 1995.<br>
@@ -153,32 +153,7 @@
                 </div>
                 -->
             </div>
-            <div class="col-md-3 testimonal">
-                <h3>MUST Navigation</h3>
-                <ul>
-                    <li><a href="#"><span></span>Mark Sheet</a></li>
-                    <li><a href="#"><span></span>Departments</a></li>
-                    <li><a href="#"><span></span>Class Routine</a></li>
-                    <li><a href="#"><span></span>Academic Calendar</a></li>
-                    <li><a href="#"><span></span>Alumni</a></li>
-                    <li><a href="#"><span></span>Seminar</a></li>
-                </ul>
-                <!--
-                <h3>Testimonials</h3>
-                <div class="testimnl-grid">
-                    <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
-                    <h5>John.Mr</h5>
-                </div>
-                <div class="testimnl-grid">
-                    <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
-                    <h5>John.Mr</h5>
-                </div>
-                <div class="testimnl-grid">
-                    <a href="#"><p>Aenean ultrices commodo risus, id sollicitudin nunc commodo at. Sed sagittis, lacus id viverra eleifend, enim magna.</p></a>
-                    <h5>John.Mr</h5>
-                </div>
-                -->
-            </div>
+
             <div class="clearfix"></div>
         </div>
     </div>
