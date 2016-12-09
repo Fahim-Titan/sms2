@@ -51,7 +51,7 @@ class StudentController extends Controller
             elseif($number >80){$grade=4.00;}
 
 
-            $cgpa += $grade/$result->credit;
+            $cgpa += $grade*$result->credit/$result->credit;
         }
 
 	   return view('student.dashboard', compact('cgpa','course_details','student_results'));

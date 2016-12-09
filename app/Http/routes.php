@@ -1,4 +1,4 @@
-<?php 
+\<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +30,8 @@ Route::resource('admin','AdminController');
 Route::resource('student','StudentController');
 Route::resource('notice', 'NoticeController');
 Route::resource('edit','editcontroller');
+
+
 
 Route::auth();
 
@@ -76,9 +78,7 @@ Route::get('/add-student','UserController@create');
 Route::get('/update-student','UserController@update');
 //upload notice
 Route::get('/upload_notice','NoticeController@create');
-Route::get('/upload_result',function(){
-    return view('upload_result');
-});
+Route::get('/teacher_assign','Teacher_assignController@create');
 Route::post('/uploadResult','ResultController@postResult');
 
 //teacher
@@ -86,6 +86,8 @@ Route::post('/uploadResult','ResultController@postResult');
 Route::get('/add-teacher','UserController@create');
 //need to think about this. how do i want to update a teacher!!
 Route::get('/update-teacher','UserController@update');
+//teacher assign
+
 
 //class_branch
 Route::get('/add-class','Class_branchController@create');

@@ -72,16 +72,13 @@
 {!! Form::open(array('route' => 'teacher.store', 'method' => 'POST')) !!}
 
 		<div class="form-group">
-			{!! Form::label('sub_id', 'Subject ID:') !!}
-			{!! Form::select('sub_id',$sub_info,null,['placeholder' => 'Select Subject','class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('cb_id', 'Class Branch ID:') !!}
-			{!! Form::select('cb_id',$class_info,null,['placeholder' => 'Select Class Branch','class' => 'form-control']) !!}
+			{!! Form::label('sub_id', 'Subject Name:') !!}
+			{!! Form::select('sub_id',$sub_info)!!}
+{{--            {{Form::select('sub_id')}}--}}
 		</div>
 		<div class="form-group">
 			{!! Form::label('id', 'ID:') !!}
-			{!! Form::select('id',$teacher,null,['placeholder' => 'Select ID','class' => 'form-control']) !!}
+			{!! Form::select('id',$teacher) !!}
 		</div>
 		<div class="form-group">
 			{!! Form::submit(null, ['class' => 'btn btn-default']) !!}

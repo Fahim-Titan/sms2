@@ -33,9 +33,9 @@ class Teacher_assignController extends Controller {
   public function create()
   {
 //    return view('teacher_assigns');
-//    $sub_info = DB::table('subjects')->lists('sub_name','sub_id');
+    $sub_info = DB::table('subjects')->lists('sub_name','sub_id');
 //    $class_info = DB::table('class_branches')->lists('name','cb_id');
-//    $teacher = DB::table('users')->where('roles','=','teacher')->lists('name','id');
+    $teacher = DB::table('users')->where('roles','=','teacher')->lists('name','id');
 //      $sub_info = DB::select('sub_name','sub_id','cb_id','cb_name')->join;
 
 //    $c_name = DB::table('cbranches')->where("$sub_info->
@@ -45,6 +45,12 @@ class Teacher_assignController extends Controller {
 //    $info = DB::Select(DB::raw("select subjects.sub_id,subjects.cb_id, class_branches.name, subjects.sub_name, subjects.textbook_name from class_branches, subjects where class_branches.cb_id = subjects.cb_id"));
 //    return view('teacher_assigns',compact('info'));
 //    return view('teacher_assigns',compact('sub_info','class_info','teacher'));
+//    $subject = DB::table('subjects')->lists('sub_name','sub_id');
+    return view('teacher_assigns', compact('sub_info','teacher'));
+//    return view('teacher_assigns');
+
+
+
   }
 
   /**
@@ -56,7 +62,7 @@ class Teacher_assignController extends Controller {
   {
     $teacher = new Teacher_assign();
     $teacher->sub_id = $request->sub_id;
-    $teacher->cb_id = $request->cb_id;
+    //$teacher->cb_id = $request->cb_id;
     $teacher->id = $request->id;
     $teacher-> save();
     return "data saved";
