@@ -149,7 +149,7 @@
 				<div class="form-group">
 						{!! Form::label('id', 'Student ID:') !!}
 						{{--{!! Form::text('sub_id') !!}--}}
-						{!! Form::select('id',$students,null,['placeholder' => 'choose student id', 'class' => 'form-control']) !!}
+						{!! Form::text('id',null,['placeholder' => 'choose student id', 'class' => 'form-control']) !!}
 				</div>
 				<div class="form-group">
 						{!! Form::label('quiz', 'Quiz:') !!}
