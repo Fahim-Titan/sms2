@@ -64,6 +64,7 @@ Route::get('/galary',function(){
 //});
 
 
+//results
 
 
 

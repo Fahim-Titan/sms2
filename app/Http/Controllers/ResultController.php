@@ -3,11 +3,13 @@
 //use Symfony\Component\HttpFoundation\Request;
 use App\Enrollment;
 use App\Result;
+use App\Subject;
 use App\User;
 use Excel;
-use Request;
+//use Request;
 use DB;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 
@@ -26,16 +28,20 @@ public $count = 0;
     // $sub_info = DB::table('subjects')->pluck('sub_name','sub_id');
     // return view('results',compact('sub_info'));
 	
-	
-	$students = User::select(DB::raw("(id+' => '+ name) as name, id"))->lists('name', 'id');
-    //$students = DB::table('users')->pluck('id');
-    //$students = User::all('name','id');
-    $sub_info = DB::table('subjects')->pluck('sub_name','sub_id');
-    return view('results',compact('sub_info','students'));
+///sir er requirement change hoise
+//	$students = User::select(DB::raw("(id+' => '+ name) as name, id"))->lists('name', 'id');
+//    $students = Enrollment::all();
+//    //$students = DB::table('users')->pluck('id');
+//    //$students = User::all('name','id');
+      //$sub_info = DB::table('subjects')->pluck('sub_name','sub_id');
+//    return view('results',compact('sub_info','students'));
 
-
+//as per new requirement
+    $sub_info = Subject::all();
+    return view('results.results_subjectChoose',compact('sub_info'));
 
   }
+
 
   /**
    * Show the form for creating a new resource.
@@ -183,7 +189,18 @@ public $count = 0;
    */
   public function show($id)
   {
-    
+    $mm = $id;
+    $enrolled_students = DB::table('enrollments')
+        ->where('sub_id', $id)
+        ->join('users','enrollments.id','=','users.id')
+        ->get();
+    //        ->join('results','users.id','=','results.id')
+//        ->join('results','results.sub_id','=',$id)
+
+    //$result_data =asdf;
+    return view('results.results_student',compact('enrolled_students'));
+//    return $enrolled_students;
+//    return "show method called";
   }
 
   /**
@@ -203,9 +220,23 @@ public $count = 0;
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-    
+
+    $name = $request->name;
+    $num = $request->final;
+    //$result = new Result();
+    $result = Result::firstOrNew(array('id'=>$id,'sub_id'=>$request->sub_id));
+    //$result->id = $id;
+    //$result->sub_id = $request->sub_id;
+    $result->e_id = 1;
+    $result->marks = 0;
+    $result->quiz =$request->quiz;
+    $result->classPerformance =$request->class_performance ;
+    $result->final = $request->final;
+    $result->save();
+    return compact('name','num','id') ;
+
   }
 
   /**
