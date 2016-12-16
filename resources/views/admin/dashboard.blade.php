@@ -81,7 +81,7 @@
 <div class="banner2">
     <div class="header">
         <div class="logo">
-            <a href={{url('/')}}><img src="{{ URL::to('src/images/logo.jpg')}}" alt=""/></a>
+            <a href={{url('/')}}><img src="{{ URL::to('src/images/logo.jpg')}}" alt=""></a>
         </div>
         <div class="top-menu">
             <span class="menu"></span>
