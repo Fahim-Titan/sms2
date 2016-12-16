@@ -155,6 +155,7 @@
                             <td><a href="{{url('/edit',$user->id)}}">{{$user->name}}</a></td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->contact_number}}</td>
+                            <td>{{$user->roles}}</td>
                         </tr>
                     @endforeach
                     </tbody>

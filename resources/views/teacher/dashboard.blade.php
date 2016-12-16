@@ -92,7 +92,7 @@
                 <li><a href={{url('/galary')}}>Gallery</a></li>
                 <li><a href={{url('/contact')}}>Contact</a></li>
                 <li><a href={{url('/notice_list')}}>Notice</a></li>
-                <li><a href={{url('/home')}}>Login</a></li>
+                <li><a href={{url('/home')}}>{{Auth::user()->name}}</a></li>
             </ul>
         </div>
         <!-- script-for-menu -->
@@ -135,18 +135,12 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($assigned_subjects as $assgn)
                     <tr>
-                        <td>John</td>
-                        <td>Doe</td>
+                        <td>{{$assgn->sub_id}}</td>
+                        <td><a href="{{route('result.show',$assgn->sub_id)}}">{{$assgn->sub_name}}</a></td>
                     </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

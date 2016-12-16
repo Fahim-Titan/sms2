@@ -37,8 +37,9 @@ public $count = 0;
 //    return view('results',compact('sub_info','students'));
 
 //as per new requirement
-    $sub_info = Subject::all();
-    return view('results.results_subjectChoose',compact('sub_info'));
+
+    $sub_info = Subject::all()->pluck('sub_name','sub_id');
+    return view('results',compact('sub_info'));
 
   }
 
@@ -193,12 +194,13 @@ public $count = 0;
     $enrolled_students = DB::table('enrollments')
         ->where('sub_id', $id)
         ->join('users','enrollments.id','=','users.id')
-        ->get();
+        ->pluck('enrollments.id');
     //        ->join('results','users.id','=','results.id')
 //        ->join('results','results.sub_id','=',$id)
 
     //$result_data =asdf;
-    return view('results.results_student',compact('enrolled_students'));
+    $sub_info = DB::table('subjects')->where('sub_id','=',$id)->pluck('sub_name','sub_id');
+    return view('results',compact('enrolled_students','sub_info'));
 //    return $enrolled_students;
 //    return "show method called";
   }

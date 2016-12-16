@@ -144,12 +144,12 @@
 				<div class="form-group">
 						{!! Form::label('sub_id', 'Subject Name:') !!}
 						{{--{!! Form::text('sub_id') !!}--}}
-						{!! Form::select('sub_id',$sub_info,null,['placeholder' => 'choose subject', 'class' => 'form-control']) !!}
+						{!! Form::select('sub_id',$sub_info,null,['class' => 'form-control']) !!}
 				</div>
 				<div class="form-group">
 						{!! Form::label('id', 'Student ID:') !!}
 						{{--{!! Form::text('sub_id') !!}--}}
-						{!! Form::text('id',null,['placeholder' => 'choose student id', 'class' => 'form-control']) !!}
+						{!! Form::select('id',$enrolled_students,null,['placeholder' => 'choose student id', 'class' => 'form-control']) !!}
 				</div>
 				<div class="form-group">
 						{!! Form::label('quiz', 'Quiz:') !!}

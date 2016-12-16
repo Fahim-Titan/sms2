@@ -4,6 +4,7 @@ use App\Subject;
 use App\Class_branch;
 use App\Teacher_assign;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use DB;
 use App\Http\Requests;
@@ -19,8 +20,16 @@ class Teacher_assignController extends Controller {
 //    return 'u r in teacher assign page';
 //    $teacher = DB::table('users')->where('roles','=','teacher')->get();
 //    return view('teachers_list',compact('teacher'));
-
-    return view('teacher.dashboard');
+    $arr[] = null;
+    $user_id = Auth::user()->id;
+    $assigned_subjects_id = DB::table('teacher_assigns')->where('id','=',$user_id)->get();
+    foreach($assigned_subjects_id as $ass){
+      $arr[] = $ass->sub_id;
+    }
+    $assigned_subjects = DB::table('subjects')->whereIn('sub_id',$arr)->get();
+//    $assigned_subjects = DB::table('teacher_assigns')
+//        ->join('subjects',)
+    return view('teacher.dashboard',compact('user_id','assigned_subjects'));
 //    $info = DB::Select(DB::raw("select subjects.sub_id,subjects.cb_id, class_branches.name, subjects.sub_name, subjects.textbook_name from class_branches, subjects where class_branches.cb_id = subjects.cb_id"));
 //    return view('teacher_assigns',compact('info','teacher'));
   }
@@ -65,7 +74,7 @@ class Teacher_assignController extends Controller {
     //$teacher->cb_id = $request->cb_id;
     $teacher->id = $request->id;
     $teacher-> save();
-    return "data saved";
+    return view('admin.dashboard');
   }
 
   /**
