@@ -20,6 +20,10 @@
 		{!! Form::text('email',null,['class' => 'form-control']) !!}
 	</div>
 	<div class="form-group">
+		{!! Form::label('password', 'Password:') !!}
+		{!! Form::password('password',null,['class' => 'form-control']) !!}
+	</div>
+	<div class="form-group">
 		{!! Form::label('contact_number', 'Contact Number:') !!}
 		{!! Form::text('contact_number',null,['class' => 'form-control']) !!}
 	</div>
@@ -35,10 +39,7 @@
 		{!! Form::label('guardian_email', 'Guardian Email:') !!}
 		{!! Form::text('guardian_email',null,['class' => 'form-control']) !!}
 	</div>
-	<div class="form-group">
-		{!! Form::label('password', 'Password:') !!}
-		{!! Form::text('password',null,['class' => 'form-control']) !!}
-	</div>
+
 
 	<div class="form-group">
 		{!! Form::label('image', 'Image:') !!}

@@ -4,8 +4,10 @@ use App\Subject;
 use App\Class_branch;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
+
 class SubjectController extends Controller {
 
   /**
@@ -24,6 +26,14 @@ class SubjectController extends Controller {
 //    $class_info = Class_branch::lists('cb_id','name');
 
   }
+
+  public function subject_list()
+  {
+    $subject = Subject::all();
+    //      $users = User::all();
+    return view('edit.subject',compact('subject'));
+  }
+
 
   /**
    * Show the form for creating a new resource.
@@ -71,7 +81,9 @@ class SubjectController extends Controller {
    */
   public function show($id)
   {
-    
+    $sub = DB::table('subjects')->where('sub_id',$id)->get();
+//    $sub = Subject::findOrFail($id);
+    return view('edit.editSubject',compact('sub'));
   }
 
   /**
@@ -91,9 +103,18 @@ class SubjectController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($sub_id,Request $request)
   {
-    
+    //$sub = Subject::findOrFail($id);
+    $sub = new Subject();
+//    $sub = DB::table('subjects')->where('sub_id',$request->sub_id)->get();
+//    $sub->sub_id = $request->sub_id;
+//    $sub->sub_name = $request->sub_name;
+//    $sub->textbook_name = $request->textbook_name;
+//    $sub->credit = $request->credit;
+    //$sub=
+    $sub->update($request->all());
+    return view('admin.dashboard');
   }
 
   /**

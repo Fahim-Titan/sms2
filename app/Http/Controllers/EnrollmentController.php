@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Enrollment;
+use App\Result;
 class EnrollmentController extends Controller {
 
   /**
@@ -46,8 +47,21 @@ class EnrollmentController extends Controller {
     $enroll->id = $request->id;
     $enroll->sub_id = $request->sub_id;
     $enroll->save();
+
+    $result = new Result();
+    //$result = Result::findOrNew($request->id);
+    $result->id = $request->id;
+    $result->sub_id = $request->sub_id;
+    $result->e_id=0;
+    $result->quiz1 = -1;
+    $result->quiz2 = -1;
+    $result->quiz3 = -1;
+    $result->quiz4 = -1;
+    $result->classPerformance = -1;
+    $result->final = -1;
+    $result->save();
     //return 'saved';
-    return view('enrollments',compact('info'))->withSuccess('data has been saved');
+    return view('enrollments',compact('info'))->withSuccess('Student Enrolled !');
   }
 
   /**

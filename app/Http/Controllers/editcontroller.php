@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
@@ -13,10 +14,18 @@ class editcontroller extends Controller
     //
     public  function  index()
     {
-//        $users = DB::table('users')->where('roles','=','student')->get();
-        $users = User::all();
+       $users = DB::table('users')->where('roles','=','student')->get();
+  //      $users = User::all();
         return view('edit.user',compact('users'));
     }
+
+    public  function  teacher_list()
+    {
+        $users = DB::table('users')->where('roles','=','teacher')->get();
+        //      $users = User::all();
+        return view('edit.user',compact('users'));
+    }
+
 
     public  function show($id)
     {

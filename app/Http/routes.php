@@ -41,7 +41,8 @@ Route::get('/home', 'HomeController@index');
 //front page links
 
 //teacher list
-Route::get('/teacher_list','UserController@teacher_list');
+//Route::get('/teacher_list','UserController@teacher_list');
+Route::get('/teacher_list','editcontroller@teacher_list');
 //notice list
 //-> it will get its links from resource
 //course list
@@ -67,6 +68,7 @@ Route::get('/galary',function(){
 //results
 
 
+//subject
 
 
 
@@ -104,6 +106,7 @@ Route::get('/promote','EnrollmentController@index');
 //upload files
 Route::get('/upload-files','FileController@create');
 
+Route::get('/subject_list','SubjectController@subject_list');
 
 //temporary links
 //Route::get('/student', function(){

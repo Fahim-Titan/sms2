@@ -92,7 +92,14 @@
                 <li><a href={{url('/galary')}}>Gallery</a></li>
                 <li><a href={{url('/contact')}}>Contact</a></li>
                 <li><a href={{url('/notice_list')}}>Notice</a></li>
-                <li><a href={{url('/home')}}>Login</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                    </ul>
             </ul>
         </div>
         <!-- script-for-menu -->
@@ -165,7 +172,10 @@
                             <thead>
                             <tr>
                                 <th>Subject Title</th>
-                                <th>Quiz</th>
+                                <th>quiz1</th>
+                                <th>quiz2</th>
+                                <th>quiz3</th>
+                                <th>quiz4</th>
                                 <th>Class Performance</th>
                                 <th>Final</th>
                                 <th>Total</th>
@@ -174,18 +184,49 @@
                             </thead>
                             <tbody>
                             @foreach($course_details as $result)
+                                {{--{{($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4}}--}}
                                 <tr>
                                     <td>{{$result->sub_name}}</td>
-                                    <td>{{$result->quiz}}</td>
-                                    <td>{{$result->classPerformance}}</td>
-                                    <td>{{$result->final}}</td>
-                                    <td>{{$result->quiz+$result->final+$result->classPerformance}}</td>
-                                    <td>@if(($result->quiz+$result->final+$result->classPerformance)<40) F
-                                    @elseif(($result->quiz+$result->final+$result->classPerformance)<50) D
-                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<60) C
-                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<70) B
-                                        @elseif(($result->quiz+$result->final+$result->classPerformance)<80) A
-                                        @else(($result->quiz+$result->final+$result->classPerformance)<81) A+
+                                    @if($result->quiz1 != -1)
+                                    <td>{{$result->quiz1}}</td>
+                                    @else <td>N/A</td>
+                                @endif
+
+                                    @if($result->quiz2 != -1)
+                                        <td>{{$result->quiz2}}</td>
+                                    @else <td>N/A</td>
+                                    @endif
+
+                                    @if($result->quiz3 != -1)
+                                        <td>{{$result->quiz3}}</td>
+                                    @else <td>N/A</td>
+                                    @endif
+
+                                    @if($result->quiz4 != -1)
+                                        <td>{{$result->quiz4}}</td>
+                                    @else <td>N/A</td>
+                                    @endif
+
+                                    @if($result->classPerformance != -1)
+                                        <td>{{$result->classPerformance}}</td>
+                                    @else <td>N/A</td>
+                                    @endif
+                                    @if($result->final != -1)
+                                        <td>{{$result->final}}</td>
+                                    @else <td>N/A</td>
+                                    @endif
+
+
+                                    <td>@if((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<0)N/A
+                                    @else {{($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance}}
+                                    @endif</td>
+                                    <td>@if((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<0) N/A
+                                        @elseif((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<40) F
+                                        @elseif((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<50) D
+                                        @elseif((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<60) C
+                                        @elseif((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<70) B
+                                        @elseif((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<80) A
+                                        @else((($result->quiz1 +$result->quiz2 + $result->quiz3 + $result->quiz4)/4+$result->final+$result->classPerformance)<81) A+
                                             @endif
                                     </td>
                                 </tr>
@@ -198,22 +239,12 @@
                             <thead>
                             <tr>
                                 <th>Subject Title</th>
-                                <th>Teacher Name</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>C 101</td>
-                                <td>Mr. Jone Doe</td>
-                            </tr>
-                            <tr>
-                                <td>C 101</td>
-                                <td>Mr. Jone Doe</td>
-                            </tr>
-                            <tr>
-                                <td>C 101</td>
-                                <td>Mr. Jone Doe</td>
-                            </tr>
+                            @foreach($course_details as $result)
+                                <td>{{$result->sub_name}}</td>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

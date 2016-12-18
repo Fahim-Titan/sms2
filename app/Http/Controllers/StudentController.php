@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enrollment;
 use App\Result;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -37,7 +38,7 @@ class StudentController extends Controller
         $grade = 0.00;
         foreach($course_details as $result)
         {
-            $number = $result->quiz+$result->final+$result->classPerformance;
+            $number = $result->quiz1+$result->final+$result->classPerformance;
 
             if($number <40 ) {$grade=0.00;}
             elseif ($number >40 && $number <44){ $grade = 2.00;}
@@ -53,8 +54,9 @@ class StudentController extends Controller
 
             $cgpa += $grade*$result->credit/$result->credit;
         }
+        $course_taken = DB::table('enrollments')->where('id',$student_id)->get();
 
-	   return view('student.dashboard', compact('cgpa','course_details','student_results'));
+	   return view('student.dashboard', compact('cgpa','course_details','student_results','course_taken'));
     }
 
     /**

@@ -113,7 +113,14 @@
                 <li><a href={{url('/contact')}}>Contact</a></li>
                 <li><a href={{url('/notice_list')}}>Notice</a></li>
                 -->
-                <li><a href={{url('/home')}}>Login</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                    </ul>
             </ul>
         </div>
         <!-- script-for-menu -->
@@ -138,7 +145,7 @@
                         <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/add-teacher')}}">Teacher Add</a></button></td>
                     </tr>
                     <tr>
-                        <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/add-teacher')}}">Student Add</a></button></td>
+                        <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/add-student')}}">Student Add</a></button></td>
                     </tr>
                     <tr>
                         <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/add-subject')}}">Subject Add</a></button></td>
@@ -149,12 +156,18 @@
                     <tr>
                         <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/teacher_assign')}}">Teacher Assign</a></button></td>
                     </tr>
-                    <tr>
-                        <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/result')}}">Add Result</a></button></td>
-                    </tr>
+                    {{--<tr>--}}
+                        {{--<td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('/result')}}">Add Result</a></button></td>--}}
+                    {{--</tr>--}}
 
                     <tr>
                         <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('edit')}}">Student List</a></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('teacher_list')}}">Teacher List</a></button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" class="btn btn-default" style="width: 70%;"><a href="{{url('subject_list')}}">Subject List</a></button></td>
                     </tr>
                     </tbody>
                 </table>

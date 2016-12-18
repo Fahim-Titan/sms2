@@ -51,39 +51,7 @@ public $count = 0;
    */
   public function create()
   {
-    $sub_id = Request::get('sub_id');
-    $e_id = Request::get('e_id');
-    //first attempt
-//    $id = DB::table('enrollments')
-//        ->join('subjects',function($join){
-//          $join->on('enrollments.cb_id','=','subjects.cb_id')
-//            ->where('subjects.sub_id','=','$sub_id');
-//        })->get();
 
-//second attempt
-    $subject_name = DB::table('subjects')->where('sub_id','=',$sub_id)->pluck('sub_name');
-    $id=DB::table('enrollments')->join('subjects','enrollments.cb_id','=','subjects.cb_id')->where('subjects.sub_id','=',$sub_id)->get();
-    $count = count($id);
-    //return view('upload_result',compact('id','sub_id','subject_name','e_id'));
-    $count = 0;
-    $data = array();
-    foreach($id as $info){
-      $count++;
-      $data[$count]=$info->id;
-    }
-//(select * from enrollments);
-//   $model = Result::join('subjects','enrollments.cb_id','=','subjects.cb_id')->where('subjects.sub_id','=',$sub_id)->pluck('id');
-   $model = \DB::connection()->getSchemaBuilder()->getColumnListing("results");
-
-    Excel::create('Filename',function($excel) use($model){
-      $excel->setTitle('result for $subject_name');
-      $excel->sheet('Result', function($sheet) use($model) {
-        $sheet->freezeFirstRow();
-//        $sheet->fromArray($data);
-        $sheet->fromModel($model);
-
-      });
-    })->download('xls');
   }
 
   /**
