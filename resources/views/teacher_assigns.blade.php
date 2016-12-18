@@ -8,7 +8,7 @@
         {{--            {{Form::select('sub_id')}}--}}
     </div>
     <div class="form-group">
-        {!! Form::label('id', 'ID:') !!}
+        {!! Form::label('id', 'Teacher Name:') !!}
         {!! Form::select('id',$teacher) !!}
     </div>
     <div class="form-group">

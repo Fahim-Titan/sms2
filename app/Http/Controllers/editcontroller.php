@@ -8,6 +8,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Http\Requests;
 use DB;
+use Illuminate\Support\Facades\Input;
 
 class editcontroller extends Controller
 {

@@ -30,7 +30,9 @@ Route::resource('admin','AdminController');
 Route::resource('student','StudentController');
 Route::resource('notice', 'NoticeController');
 Route::resource('edit','editcontroller');
-
+Route::resource('quiz','quizController');
+Route::resource('final','FinalController');
+Route::resource('classperformance','ClassPerformanceController');
 
 
 Route::auth();

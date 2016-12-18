@@ -15,7 +15,7 @@ class Teacher_assignController extends Controller {
    *
    * @return Response
    */
-  public function index()
+  public static function index()
   {
 //    return 'u r in teacher assign page';
 //    $teacher = DB::table('users')->where('roles','=','teacher')->get();

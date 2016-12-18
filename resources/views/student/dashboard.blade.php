@@ -5,11 +5,13 @@
 <script src="js/responsiveslides.min.js"></script>
 <style>
     div.card {
-        width: 250px;
-        height: 300px;
+
+        width: 200px;
+        height: 200px;
+
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         /*text-align: center;*/
-        padding: 10px;
+
     }
 
     .top_gap{
@@ -121,7 +123,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-
+                            <img src="{{URL::asset('/user_images/'.Auth::user()->image)}}" alt="profile Pic" height="200" width="200">
 
                         </div>
                     </div>
@@ -243,7 +245,7 @@
                             </thead>
                             <tbody>
                             @foreach($course_details as $result)
-                                <td>{{$result->sub_name}}</td>
+                               <tr> <td>{{$result->sub_name}}</td></tr>
                                 @endforeach
                             </tbody>
                         </table>
