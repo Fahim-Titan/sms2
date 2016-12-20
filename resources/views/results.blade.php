@@ -55,14 +55,28 @@
 				@foreach($enrolled_students as $student)
 
 					<tr>
-						<td>{{$student->Result_id}}</td>
+						{{--<td>{{$student->Result_id}}</td>--}}
 						<td>{{$student->id}}</td>
+						@if($student->quiz1 != -1)
 						<td>{{$student->quiz1}}</td>
+						@else<td>N/A</td>
+						@endif
+
+						@if($student->quiz2 != -1)
 						<td>{{$student->quiz2}}</td>
+						@else<td>N/A</td> @endif
+						@if($student->quiz3 != -1)
 						<td>{{$student->quiz3}}</td>
+						@else<td>N/A</td> @endif
+						@if($student->quiz4 != -1)
 						<td>{{$student->quiz4}}</td>
+						@else<td>N/A</td> @endif
+						@if($student->classPerformance != -1)
 						<td>{{$student->classPerformance}}</td>
+						@else <td>N/A</td> @endif
+						@if($student->final != -1)
 						<td>{{$student->final}}</td>
+						@else<td>N/A</td> @endif
 						<td><a href="{{route('quiz.show',$student->Result_id)}}">update</a></td>
 						<td><a href="{{route('classperformance.show',$student->Result_id)}}">update</a></td>
 						<td><a href="{{route('final.show',$student->Result_id)}}">update final</a></td>
