@@ -225,19 +225,17 @@
                     <li><a href={{url('/course_list')}}>Programs</a></li>
                     <li><a href={{url('/galary')}}>Gallery</a></li>
                     <li><a href={{url('/contact')}}>Contact</a></li>
-                    <li><a href={{url('/notice_list')}}>Notice</a></li>
+                    <li><a href={{url('/notice')}}>Notice</a></li>
                     <li><a href={{url('/home')}}>Login</a></li>
                 </ul>
             </div>
             <div class="col-md-4 ftr-grid3">
                 <h3>MUST Navigation</h3>
                 <ul>
-                    <li><a href="#"><span></span>Mark Sheet</a></li>
-                    <li><a href="#"><span></span>Departments</a></li>
-                    <li><a href="#"><span></span>Class Routine</a></li>
-                    <li><a href="#"><span></span>Academic Calendar</a></li>
-                    <li><a href="#"><span></span>Alumni</a></li>
-                    <li><a href="#"><span></span>Seminar</a></li>
+                    <li><a href={{url('/notice')}}><span></span>Mark Sheet</a></li>
+                    <li><a href={{url('/course_list')}}><span></span>Departments</a></li>
+                    <li><a href={{url('/notice')}}><span></span>Class Routine</a></li>
+                    <li><a href={{url('/notice')}}><span></span>Academic Calendar</a></li>
                 </ul>
             </div>
             <div class="clearfix"></div>

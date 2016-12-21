@@ -12,6 +12,7 @@
         {!! Form::select('id',$teacher) !!}
     </div>
     <div class="form-group">
+
         {!! Form::submit(null, ['class' => 'btn btn-default']) !!}
     </div>
     {!! Form::close() !!}
